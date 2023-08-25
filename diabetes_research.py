@@ -404,3 +404,19 @@ def voting_classifier (best_models, X, y):
     return voting_clf
 
 voting_clf = voting_classifier(best_models, X, y)
+
+
+#################################################
+# 6. Prediction for a New Observation
+#################################################
+
+X.columns
+
+random_user = X.sample(1, random_state=45)
+voting_clf.predict(random_user)
+
+joblib.dump(voting_clf, "voting_clf2.pkl")
+
+new_model = joblib.load("voting_clf2.pkl")
+new_model.predict(random_user)
+
